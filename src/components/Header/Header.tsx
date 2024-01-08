@@ -5,10 +5,11 @@ import { BiMenuAltRight } from "react-icons/bi";
 import OutsideClickHandler from "react-outside-click-handler";
 const Header = () => {
   const [menuOpened, setMenuOpened] = useState(false);
-  const getMenuStyles = (menuOpened) => {
+  const getMenuStyles = (menuOpened: boolean) => {
     if (document.documentElement.clientWidth <= 800) {
-      return { right: !menuOpened && "-100%" };
+      return { right: !menuOpened ? "-100%" : undefined };
     }
+    return {}; // Return default empty styles if condition is not met
   };
   return (
     <section className="h-wrappper">

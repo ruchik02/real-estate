@@ -5,13 +5,25 @@ import {
   AccordionItemHeading,
   AccordionItemButton,
   AccordionItemPanel,
-  AccordionItemState,
 } from "react-accessible-accordion";
 import { MdOutlineArrowDropDown } from "react-icons/md";
 import Val from "../../assets/value.jpg";
 import "./Value.css";
 import data from "../../utils/accordion";
 const Value = () => {
+  const [classNames, setClassNames] = useState(
+    Array(data.length).fill("collapsed")
+  );
+  const toggleClassName = (index: any) => {
+    const newClassNames = classNames.map((className, i) =>
+      i === index
+        ? className === "collapsed"
+          ? "expanded"
+          : "collapsed"
+        : className
+    );
+    setClassNames(newClassNames);
+  };
   return (
     <section className="v-wrapper">
       <div className="paddings innerWidth flexCenter v-container">
@@ -36,22 +48,17 @@ const Value = () => {
             preExpanded={[0]}
           >
             {data.map((item, i) => {
-              const [className, setClassName] = useState(null);
               return (
                 <AccordionItem
-                  className={`accordionItem ${className}`}
+                  className={`accordionItem ${classNames[i]}`}
                   key={i}
                   uuid={i}
                 >
                   <AccordionItemHeading>
-                    <AccordionItemButton className="flexCenter accordionButton">
-                      <AccordionItemState>
-                        {({ expanded }) =>
-                          expanded
-                            ? setClassName("expanded")
-                            : setClassName("collapsed")
-                        }
-                      </AccordionItemState>
+                    <AccordionItemButton
+                      className="flexCenter accordionButton"
+                      onClick={() => toggleClassName(i)}
+                    >
                       <div className="flexCenter icon">{item.icon}</div>
                       <span className="primaryText">{item.heading}</span>
                       <div className="flexCenter icon">
