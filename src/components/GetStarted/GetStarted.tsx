@@ -1,7 +1,7 @@
 import "./GetStarted.css";
 const GetStarted = () => {
   return (
-    <div className="start-wrapper">
+    <div id="started" className="start-wrapper">
       <div className="paddings innerWidth start-container">
         <div className="flexColCenter inner-container">
           <span className="primaryText">

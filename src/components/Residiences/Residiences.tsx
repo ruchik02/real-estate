@@ -8,7 +8,7 @@ import { sliderSettings } from "../../utils/common";
 const Residiences = () => {
   console.log(data.map((card) => card.image));
   return (
-    <section className="r-wrapper">
+    <section id="residencies" className="r-wrapper">
       <div className="paddings innerwidth r-container">
         <div className="flexColStart r-head">
           <span className="orangeText">Best Choices</span>

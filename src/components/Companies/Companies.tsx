@@ -8,7 +8,7 @@ import image6 from "../../assets/prologis.png";
 
 const Companies = () => {
   return (
-    <section className="c-wrapper">
+    <section id="companies" className="c-wrapper">
       <div className="paddings innerWidth flexCenter c-container">
         <img src={image1} alt="image 1" />
         <img src={image2} alt="image 2" />
